@@ -6,7 +6,10 @@ class Player
         @moves = []
     end
     def update(choice,board)
-        moves << choice
-        board.fields[choice] = symbol
+       if (moves << choice) && (board.fields[choice] = symbol)
+        true
+       else 
+        false
+       end
     end
 end

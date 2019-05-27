@@ -1,4 +1,4 @@
-require_relative "../lib/ui.rb"
+require_relative "ui.rb"
 class Game
   attr_reader :player_1, :player_2, :board
   def initialize(player_1, player_2, board)
@@ -26,12 +26,11 @@ class Game
     is_draw
   end
 
-  private
-
   def switch_players(player)
-    play(player)
+    #play(player)
+    player.moves << 2
     if board.win?(player.moves)
-      display_winner(player.name)
+     # display_winner(player.name)
       return 1
     end
     0
