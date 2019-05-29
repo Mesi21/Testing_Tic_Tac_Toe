@@ -1,38 +1,43 @@
-require_relative "ui.rb"
+# frozen_string_literal: true
+
+require_relative 'ui.rb'
 class Game
   attr_reader :player_1, :player_2, :board
   def initialize(player_1, player_2, board)
-      @board = board
-      @player_1 = player_1
-      @player_2 = player_2
+    @board = board
+    @player_1 = player_1
+    @player_2 = player_2
   end
 
   include UserInterface
 
   def cycle
-    symbol = "X"
-    while !game_over?
+    symbol = 'X'
+    until game_over?
       display_board
-      if symbol =="X"
+      if symbol == 'X'
         won = switch_players(player_1)
-        break if won ==1
-        symbol = "O"
+        break if won == 1
+
+        symbol = 'O'
       else
         won = switch_players(player_2)
-        break if won ==1
-        symbol = "X"
+        break if won == 1
+
+        symbol = 'X'
       end
     end
     is_draw
   end
 
   def switch_players(player)
-    #play(player)
+    # play(player)
     player.moves << 2
     if board.win?(player.moves)
-     # display_winner(player.name)
+      # display_winner(player.name)
       return 1
     end
+
     0
   end
 
