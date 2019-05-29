@@ -18,6 +18,7 @@ describe Game do
     let(:player1) { Player.new('Noordeen', 'X') }
     let(:player2) { Player.new('Mesi', 'O') }
     let(:board) { Board.new }
+    let(:game) { Game.new(player1, player2, board) }
     before do
       i = 0
       board.fields.length.times do
@@ -25,7 +26,6 @@ describe Game do
         i += 1
       end
     end
-    let(:game) { Game.new(player1, player2, board) }
     it 'should return true on game_over? method' do
       output = game.game_over?
       expect(output).to eq true
@@ -35,6 +35,7 @@ describe Game do
     let(:player1) { Player.new('Noordeen', 'X') }
     let(:player2) { Player.new('Mesi', 'O') }
     let(:board) { Board.new }
+    let(:game) { Game.new(player1, player2, board) }
     before do
       i = 0
       2.times do
@@ -42,7 +43,6 @@ describe Game do
         i += 1
       end
     end
-    let(:game) { Game.new(player1, player2, board) }
     it 'should return 1 on switch_players method' do
       output = game.switch_players(player1)
       expect(output).to eq 1
